@@ -18,8 +18,9 @@
 		"ghcr.io/devcontainers/features/python:1": {
 			"version": "3.11"
 		},
-		"mcr.microsoft.com/devcontainers/rust:1-1-bullseye": {
-		}
+		"ghcr.io/devcontainers/features/rust": {
+			"version": "latest"
+		},
 	},
 	"customizations": {
 		"vscode": {
@@ -32,7 +33,7 @@
 			]
 		}
 	},
-	"postCreateCommand": "cd ./completesolution/node; npm install; cd ../../; dotnet restore ./completesolution/dotnet/dotnet.csproj"
+	"postCreateCommand": "cd ./completesolution/node; npm install; cd ../../; dotnet restore ./completesolution/dotnet/dotnet.csproj; cd ./exercisefiles/python; python3.11 -m venv .venv; . .venv/bin/activate; pip install -r requirements.txt"
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
